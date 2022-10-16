@@ -2,6 +2,12 @@
 
 Chrome 类浏览器插件，快速查阅你关注的up主动态。
 
+目前此插件功能相当单一，初衷是减少被哔哩哔哩生态的依赖，但不希望错过关注的Up主更新内容。
+
+<span>
+<img src="/Snipaste_2022-09-27_16-27-27.png" height="250" alt="截图">
+</span>
+
 ## 获取最新crx安装包
 
 ![Release download](https://github.com/ittat/extension-milimili/releases)
