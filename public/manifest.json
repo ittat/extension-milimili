@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "milimili",
+  "description": "快速查阅你关注的up主动态",
+  "version": "1.0",
+
+  "options_ui": {
+    "page": "options.html"
+  },
+
+  "action": {
+    "default_icon": "bilibili1.png",
+    "default_popup": "popup.html"
+  },
+
+  "content_scripts": [
+      {
+          "matches": ["<all_urls>"],
+          "js": ["js/vendor.js", "js/content_script.js"]
+      }
+  ],
+
+  "background": {
+    "service_worker": "js/background.js"
+  },
+
+  "permissions": [
+    "storage",
+    "cookies"
+  ],
+
+  "host_permissions": [
+    "<all_urls>"
+  ]
+}
