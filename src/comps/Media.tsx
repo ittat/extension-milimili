@@ -58,7 +58,7 @@ function Media(props: MediaProps) {
               alt={data.modules.module_author.name}
               src={data.modules.module_author.face}
               sx={{ cursor: 'pointer' }}
-              onClick={() => window.open(data.modules.module_author.jump_url, '_blank')}
+              onClick={() => window.open("https:" + data.modules.module_author.jump_url, '_blank')}
             />
           )
         }
@@ -76,7 +76,7 @@ function Media(props: MediaProps) {
           ) : (
             <Box
               sx={{ cursor: 'pointer', ':hover': { textDecoration: "underline" } }}
-              onClick={() => window.open(data.modules.module_author.jump_url, '_blank')}
+              onClick={() =>  window.open("https:" + data.modules.module_author.jump_url, '_blank')}
             >{data.modules.module_author.name}</Box>
           )
         }
@@ -88,7 +88,7 @@ function Media(props: MediaProps) {
           )
         }
       />
-        {content}
+      {content}
     </Card>
   );
 
