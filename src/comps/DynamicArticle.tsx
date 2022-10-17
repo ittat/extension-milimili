@@ -75,6 +75,14 @@ const DynamicArticle = ({ covers, desc, jump_url, title }: {
         <CardContent>
             <Typography 
             // sx={{ height: 70 }}
+            sx={{
+                // height: 40,
+                display: "-webkit-box",
+                WebkitBoxOrient: "vertical",
+                WebkitLineClamp: 2,
+                overflow: "hidden",
+    
+            }}
              variant="body2" color="text.secondary" component="p">
                 {title}
                 {desc}

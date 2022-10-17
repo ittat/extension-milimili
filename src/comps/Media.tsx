@@ -102,7 +102,7 @@ function Media(props: MediaProps) {
           )
         }
       />
-      <Box sx={{ 'min-height':180 }}>
+      <Box sx={{ minHeight:180 }}>
            {content}  
       </Box>
  

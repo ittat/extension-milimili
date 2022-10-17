@@ -67,9 +67,16 @@ const DynamicDraw = ({ draws, desc }: { draws: IDraw[], desc?: string }) => {
 
 
         <CardContent>
-            <Typography variant="body2" color="text.secondary" component="p" noWrap>
+            <Typography variant="body2" color="text.secondary" component="p"
+                style={{
+                    display: "-webkit-box",
+                    WebkitBoxOrient: "vertical",
+                    WebkitLineClamp: 2,
+                    overflow: "hidden",
+                }} >
                 {desc}
             </Typography>
+
         </CardContent>
 
 

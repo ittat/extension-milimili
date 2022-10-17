@@ -10,12 +10,10 @@ const DynamicForward = ({ text, orig }: { text: string, orig: IWebDynamic }) => 
     return <CardContent>
         <Typography sx={{
             height: 40,
-
             display: "-webkit-box",
-            "-webkit-box-orient": "vertical",
-            "-webkit-line-clamp": 3,
+            WebkitBoxOrient: "vertical",
+            WebkitLineClamp: 2,
             overflow: "hidden",
-
 
         }} variant="body2" color="text.secondary" component="p">
             {text}
@@ -26,16 +24,33 @@ const DynamicForward = ({ text, orig }: { text: string, orig: IWebDynamic }) => 
         <Box height={100} border="1px solid #80808030" borderRadius={5} display="flex" alignItems="center">
             <Box
                 mx={5}
-                sx={{ cursor: 'pointer', ':hover': { textDecoration: "underline" } }}
+                sx={{
+                    cursor: 'pointer', ':hover': { textDecoration: "underline" },
+
+
+                }}
                 onClick={() => window.open("https:" + orig.modules.module_author.jump_url, '_blank')}
             >
                 <Avatar
                     alt={orig.modules.module_author.name}
                     src={orig.modules.module_author.face}
-                    sx={{ cursor: 'pointer' }}
+                    sx={{
+                        cursor: 'pointer',
+                    }}
                     onClick={() => window.open("https:" + orig.modules.module_author.jump_url, '_blank')}
                 />
-                {orig.modules.module_author.name}
+                <Box
+                    sx={{
+                        display: "-webkit-box",
+                        WebkitBoxOrient: "vertical",
+                        WebkitLineClamp: 1,
+                        overflow: "hidden",
+
+                    }}
+                >
+                    {orig.modules.module_author.name}
+                </Box>
+
             </Box>
 
             <Box
@@ -44,8 +59,8 @@ const DynamicForward = ({ text, orig }: { text: string, orig: IWebDynamic }) => 
                     cursor: 'pointer',
                     ':hover': { textDecoration: "underline" },
                     display: "-webkit-box",
-                    "-webkit-box-orient": "vertical",
-                    "-webkit-line-clamp": 3,
+                    WebkitBoxOrient: "vertical",
+                    WebkitLineClamp: 3,
                     overflow: "hidden",
                 }}
 
