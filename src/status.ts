@@ -88,21 +88,25 @@ checkHasLogin = async () => {
   if (this.islogin){
     return true
   }
-  const config: IConfig = {
-    url: webDynamicApiHost + `/portal`,
-    method: "GET",
-    credentials: "include",
-  }
+  // const config: IConfig = {
+  //   url: webDynamicApiHost + `/portal`,
+  //   method: "GET",
+  //   credentials: "include",
+  // }
 
-  const response = await apiFetch<IRespond<IUpdate>>(config);
+  // const response = await apiFetch<IRespond<IUpdate>>(config);
 
-  if (response &&response.code == 0) {
-    this.islogin = true
+  // if (response &&response.code == 0) {
+  //   this.islogin = true
     
-  }else{
+  // }else{
 
-    this.islogin = false
-  }
+  //   this.islogin = false
+  // }
+
+  const uid = this.getMyUid()
+
+  this.islogin = !!uid
 
   return this.islogin
 

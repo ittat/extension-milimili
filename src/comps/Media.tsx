@@ -5,8 +5,10 @@ import CardHeader from "@mui/material/CardHeader";
 import Skeleton from "@mui/material/Skeleton/Skeleton";
 import React, { useMemo } from "react";
 import { IWebDynamic } from "../common/interface";
+import DynamicArticle from "./DynamicArticle";
 import DynamicDefault from "./DynamicDefault";
 import DynamicDraw from "./DynamicDraw";
+import DynamicForward from "./DynamicForward";
 import DynamicLive from "./DynamicLive";
 import DynamicVideo from "./DynamicVideo";
 import DynamicWord from "./DynamicWord";
@@ -41,8 +43,20 @@ function Media(props: MediaProps) {
     else if (data.type == 'DYNAMIC_TYPE_LIVE_RCMD') {
 
       return <DynamicLive content={data.modules.module_dynamic.major?.live_rcmd?.content || '{}'} />
-    }
-    else {
+    } else if (data.type == 'DYNAMIC_TYPE_FORWARD') {
+      return <DynamicForward
+        text={data.modules?.module_dynamic?.desc?.text || ''}
+        orig={data.orig}
+      />
+
+    } else if (data.type == "DYNAMIC_TYPE_ARTICLE") {
+      return <DynamicArticle
+        title={data.modules.module_dynamic.major?.article?.title}
+        covers={data.modules.module_dynamic.major?.article?.covers}
+        desc={data.modules.module_dynamic.major?.article?.desc}
+        jump_url={data.modules.module_dynamic.major?.article?.jump_url}
+        label={data.modules.module_dynamic.major?.article?.label}     />
+    } else {
       return <DynamicDefault type={data.type} />
     }
   }, [data])
@@ -76,7 +90,7 @@ function Media(props: MediaProps) {
           ) : (
             <Box
               sx={{ cursor: 'pointer', ':hover': { textDecoration: "underline" } }}
-              onClick={() =>  window.open("https:" + data.modules.module_author.jump_url, '_blank')}
+              onClick={() => window.open("https:" + data.modules.module_author.jump_url, '_blank')}
             >{data.modules.module_author.name}</Box>
           )
         }
@@ -88,7 +102,10 @@ function Media(props: MediaProps) {
           )
         }
       />
-      {content}
+      <Box sx={{ 'min-height':180 }}>
+           {content}  
+      </Box>
+ 
     </Card>
   );
 

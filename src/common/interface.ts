@@ -80,11 +80,29 @@ export interface IModules {
             draw?: {
                 id: number,
                 items: IDraw[]
+            },
+            article?:{
+                covers?: string[],
+                desc?:string,
+                id:number,
+                jump_url:string,
+                label?:string,
+                title?:string,
+            },
+            // DYNAMIC_TYPE_LIVE
+            live:{
+                title:string,
+                jump_url:string,
+                id:number,
+                desc_first:string,
+                cover:string
             }
         }
     }
 
 }
+
+
 
 export interface IDraw {
     height: number,
@@ -99,7 +117,7 @@ export interface IWebDynamic {
     modules: IModules,
     orig: IWebDynamic,
     id_str: string,
-    type: "DYNAMIC_TYPE_WORD" | "DYNAMIC_TYPE_LIVE_RCMD" | "DYNAMIC_TYPE_AV" | "DYNAMIC_TYPE_FORWARD" | "DYNAMIC_TYPE_DRAW", // 发文字|直播| 视频|转发动态| 多图
+    type: "DYNAMIC_TYPE_WORD" | "DYNAMIC_TYPE_LIVE_RCMD" | "DYNAMIC_TYPE_AV" | "DYNAMIC_TYPE_FORWARD" | "DYNAMIC_TYPE_DRAW" | "DYNAMIC_TYPE_ARTICLE", // 发文字|直播| 视频|转发动态| 多图
     visible: boolean
 }
 
